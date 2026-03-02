@@ -1,0 +1,32 @@
+    1  sudo apt update
+    2  sudo apt install -y clang llvm libbpf-dev linux-headers-$(uname -r) build-essential iproute2
+    3  multipass stop fluxguard-vm
+    4  exit
+    5  mkdir fluxguard
+    6  cd fluxguard
+    7  nano fluxguard_kern.c
+    8  clang -O2 -target bpf -c fluxguard_kern.c -o fluxguard_kern.o
+    9  clang -O2 -target bpf -I/usr/include/$(uname -m)-linux-gnu -c fluxguard_kern.c -o fluxguard_kern.o
+   10  ls
+   11  sudo ip link add veth0 type veth peer name veth1
+   12  sudo ip link set dev veth0 up
+   13  sudo ip link set dev veth1 up
+   14  sudo ip link set dev veth0 xdp obj fluxguard_kern.o sec xdp
+   15  ip link show dev veth0
+   16  sudo ip link set dev veth0 xdp off
+   17  sudo apt upgrade -y
+   18  xdp off
+   19  sudo ip link set dev veth0 xdp off
+   20  ls
+   21  nano fluxguard_kern.c
+   22  ls
+   23  sudo apt update
+   24  sudo apt install -y     linux-headers-$(uname -r)     linux-libc-dev     libbpf-dev     clang     llvm     make     gcc     pkg-config
+   25  git --version
+   26  mkdir os-project
+   27  cd os-project
+   28  git init
+   29  ls
+   30  git remote add origin https://github.com/DarkDS13/FluxGuard/os-project.git
+   31  history
+   32  history > command_log.txt
