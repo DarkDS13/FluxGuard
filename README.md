@@ -183,6 +183,5 @@ CI                 : GitHub Actions
 ## Credits and Contributors
 
 Designed and developed with ❤️ by **Devansh** and **Samarth**.
-Built as part of an academic research project focused on high-performance networking and kernel-level security using eBPF/XDP.
 
 ---
